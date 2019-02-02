@@ -23,25 +23,25 @@ class FilterObject extends Component {
         })
     }
 
-    // handleFilterArray() {
-    //     const filterObj = this.state.unFilteredArray.filter(obj => obj.hasOwnProperty(this.state.userInput))
+    handleFilterArray() {
+        const filterObj = this.state.unFilteredArray.filter(obj => obj.hasOwnProperty(this.state.userInput))
         
-    //     this.setState({
-    //         filteredArray: filterObj,
-    //         userInput:``
-    //     })
-    // }
+        this.setState({
+            filteredArray: filterObj,
+            userInput:``
+        })
+    }
     
 //
     render() {
-        
+
         return (
             <div className="puzzleBox filterObjectPB">
             <h4>Filter Object</h4>
             <span className="puzzleText">Original:{JSON.stringify(this.state.unFilteredArray)}</span>
             <input className="inputLine" onChange={(e) => this.handleUserInput(e.target.value)} value={this.state.userInput} />
-            <button className="confirmationButton">Filter</button>
-            <span className="resultsBox filterObjectRB">Filtered: []</span>
+            <button className="confirmationButton" onClick={()=>this.handleFilterArray()}>Filter</button>
+            <span className="resultsBox filterObjectRB">Filtered: {JSON.stringify(this.state.filteredArray)}</span>
             </div>
         )
     }
