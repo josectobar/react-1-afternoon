@@ -22,11 +22,12 @@ class Palindrome extends Component {
     handlePalindromeEval(){
         const inputString = this.state.userInput.toLowerCase().split("").filter(char => char !== " ")
         const tempPalindrome = () => 
-        inputString.join('') === inputString.reverse().join('') ? "true" : "false"
+        inputString.join('') === inputString.reverse().join('') ? "Yes, it's palindrome! 😀" : "No, it's not a palindrome 😞"
         this.setState({
             palindrome: tempPalindrome(),
             userInput:``
         })
+        console.log(typeof this.state.palindrome)
     }
 
 

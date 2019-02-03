@@ -3,27 +3,22 @@ import React, { Component } from 'react';
 
 class EvenAndOdd extends Component {
 
-    constructor(){
-        super()
-        this.state = {
+        state = {
             evenArray: [],
             oddArray: [],
             userInput: ``
         }
-    }
 
-    handleUserInput(value) {
+    handleUserInput = (value) => {
         this.setState({
             userInput: value
         })
     }
 
-    handleAddNumbers() {
+    handleAddNumbers = () => {
         let numbers = this.state.userInput.split(",")
         let evens = numbers.map(number => +number).filter(number=> number % 2 ===0)
         let odds = numbers.map(number => +number).filter(number=> number % 2 !==0)
-        console.log(evens)
-        console.log(typeof JSON.stringify(evens))
 
         this.setState({
             evenArray: evens,
